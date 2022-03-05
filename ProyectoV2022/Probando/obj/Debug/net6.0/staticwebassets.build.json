@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "TwZvGhz2IRDhFa+nleJqbnRIl0io/QrlUDdoO7P5HRc=",
+  "Source": "ServicioMedico",
+  "BasePath": "_content/ServicioMedico",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

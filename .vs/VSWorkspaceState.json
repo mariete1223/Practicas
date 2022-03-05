@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ServicioMedico",
+    "\\ServicioMedico\\ServicioMedico\\Entities"
   ],
-  "SelectedNode": "\\C:\\Users\\marie\\Source\\Repos\\Practicas",
+  "SelectedNode": "\\ServicioMedico",
   "PreviewInSolutionExplorer": false
 }
