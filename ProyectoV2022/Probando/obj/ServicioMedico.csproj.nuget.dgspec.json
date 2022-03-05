@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marie\\source\\repos\\Practicas\\ProyectoV2022\\Probando\\ServicioMedico.csproj": {}
+    "C:\\Users\\marie\\Source\\Repos\\Practicas\\ProyectoV2022\\Probando\\ServicioMedico.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marie\\source\\repos\\Practicas\\ProyectoV2022\\Probando\\ServicioMedico.csproj": {
+    "C:\\Users\\marie\\Source\\Repos\\Practicas\\ProyectoV2022\\Probando\\ServicioMedico.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marie\\source\\repos\\Practicas\\ProyectoV2022\\Probando\\ServicioMedico.csproj",
+        "projectUniqueName": "C:\\Users\\marie\\Source\\Repos\\Practicas\\ProyectoV2022\\Probando\\ServicioMedico.csproj",
         "projectName": "ServicioMedico",
-        "projectPath": "C:\\Users\\marie\\source\\repos\\Practicas\\ProyectoV2022\\Probando\\ServicioMedico.csproj",
+        "projectPath": "C:\\Users\\marie\\Source\\Repos\\Practicas\\ProyectoV2022\\Probando\\ServicioMedico.csproj",
         "packagesPath": "C:\\Users\\marie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marie\\source\\repos\\Practicas\\ProyectoV2022\\Probando\\obj\\",
+        "outputPath": "C:\\Users\\marie\\Source\\Repos\\Practicas\\ProyectoV2022\\Probando\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marie\\AppData\\Roaming\\NuGet\\NuGet.Config",
