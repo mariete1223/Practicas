@@ -16,14 +16,14 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-02-25T17:37:39+0100",
+    date = "2022-03-21T16:53:19+0100",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 15.0.1 (Oracle Corporation)"
 )
 @Component
 public class MedicoMapperImpl implements MedicoMapper {
 
     @Override
-    public MedicoSearchFilter MedicoToMedicoCompletoDTO(Medico medico) {
+    public MedicoSearchFilter MedicoToMedicoSearchFilterDTO(Medico medico) {
         if ( medico == null ) {
             return null;
         }
@@ -43,7 +43,7 @@ public class MedicoMapperImpl implements MedicoMapper {
     }
 
     @Override
-    public Medico MedicoCompletoDTOToMedico(MedicoSearchFilter medicoDTO) {
+    public Medico MedicoSearchFilterDTOToMedico(MedicoSearchFilter medicoDTO) {
         if ( medicoDTO == null ) {
             return null;
         }
@@ -96,6 +96,20 @@ public class MedicoMapperImpl implements MedicoMapper {
         medico.setNumColegio( medicoDTO.getNumColegio() );
 
         return medico;
+    }
+
+    @Override
+    public List<MedicoSearchFilter> MedicoListToMedicoSearchFilterDTOList(List<Medico> findAll) {
+        if ( findAll == null ) {
+            return null;
+        }
+
+        List<MedicoSearchFilter> list = new ArrayList<MedicoSearchFilter>( findAll.size() );
+        for ( Medico medico : findAll ) {
+            list.add( MedicoToMedicoSearchFilterDTO( medico ) );
+        }
+
+        return list;
     }
 
     protected PacienteDTO pacienteToPacienteDTO(Paciente paciente) {

@@ -1,5 +1,7 @@
 package net.acc.customproyect.mapper;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.annotation.Generated;
 import net.acc.customproyect.entities.Cita;
 import net.acc.customproyect.entities.Diagnostico;
@@ -14,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-02-25T17:37:39+0100",
+    date = "2022-03-21T16:53:19+0100",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 15.0.1 (Oracle Corporation)"
 )
 @Component
@@ -36,7 +38,7 @@ public class DiagnosticoMapperImpl implements DiagnosticoMapper {
     }
 
     @Override
-    public DiagnosticoSearchFilter DiagnosticoToDiagnosticoCompletoDTO(Diagnostico diagnostico) {
+    public DiagnosticoSearchFilter DiagnosticoToDiagnosticoSearchFilterDTO(Diagnostico diagnostico) {
         if ( diagnostico == null ) {
             return null;
         }
@@ -67,7 +69,7 @@ public class DiagnosticoMapperImpl implements DiagnosticoMapper {
     }
 
     @Override
-    public Diagnostico DiagnosticoCompletoDTOToDiagnostico(DiagnosticoSearchFilter diagnosticoDTO) {
+    public Diagnostico DiagnosticoSearchFilterDTOToDiagnostico(DiagnosticoSearchFilter diagnosticoDTO) {
         if ( diagnosticoDTO == null ) {
             return null;
         }
@@ -80,6 +82,20 @@ public class DiagnosticoMapperImpl implements DiagnosticoMapper {
         diagnostico.setCita( citaDTOToCita( diagnosticoDTO.getCita() ) );
 
         return diagnostico;
+    }
+
+    @Override
+    public List<DiagnosticoSearchFilter> DiagnosticoSListToDiagnosticoSearchFilterList(List<Diagnostico> diagnosticos) {
+        if ( diagnosticos == null ) {
+            return null;
+        }
+
+        List<DiagnosticoSearchFilter> list = new ArrayList<DiagnosticoSearchFilter>( diagnosticos.size() );
+        for ( Diagnostico diagnostico : diagnosticos ) {
+            list.add( DiagnosticoToDiagnosticoSearchFilterDTO( diagnostico ) );
+        }
+
+        return list;
     }
 
     protected MedicoDTO medicoToMedicoDTO(Medico medico) {

@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-02-25T17:37:39+0100",
+    date = "2022-03-21T16:53:19+0100",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 15.0.1 (Oracle Corporation)"
 )
 @Component
@@ -65,7 +65,7 @@ public class PacienteMapperImpl implements PacienteMapper {
     }
 
     @Override
-    public PacienteSearchFilter PacienteToPacienteCompletoDTO(Paciente paciente) {
+    public PacienteSearchFilter PacienteToPacienteSearchFilterDTO(Paciente paciente) {
         if ( paciente == null ) {
             return null;
         }
@@ -88,7 +88,7 @@ public class PacienteMapperImpl implements PacienteMapper {
     }
 
     @Override
-    public Paciente PacienteCompletoDTOToPaciente(PacienteSearchFilter pacienteDTO) {
+    public Paciente PacienteSearchFilterDTOToPaciente(PacienteSearchFilter pacienteDTO) {
         if ( pacienteDTO == null ) {
             return null;
         }
@@ -125,28 +125,14 @@ public class PacienteMapperImpl implements PacienteMapper {
     }
 
     @Override
-    public List<Paciente> pacienteDTOListToPacienteList(List<PacienteDTO> pacientes) {
-        if ( pacientes == null ) {
-            return null;
-        }
-
-        List<Paciente> list = new ArrayList<Paciente>( pacientes.size() );
-        for ( PacienteDTO pacienteDTO : pacientes ) {
-            list.add( PacienteDTOToPaciente( pacienteDTO ) );
-        }
-
-        return list;
-    }
-
-    @Override
-    public List<PacienteSearchFilter> pacienteListToPacienteCompletoDTOList(List<Paciente> pacientes) {
+    public List<PacienteSearchFilter> pacienteListToPacienteSearchFilterDTOList(List<Paciente> pacientes) {
         if ( pacientes == null ) {
             return null;
         }
 
         List<PacienteSearchFilter> list = new ArrayList<PacienteSearchFilter>( pacientes.size() );
         for ( Paciente paciente : pacientes ) {
-            list.add( PacienteToPacienteCompletoDTO( paciente ) );
+            list.add( PacienteToPacienteSearchFilterDTO( paciente ) );
         }
 
         return list;
