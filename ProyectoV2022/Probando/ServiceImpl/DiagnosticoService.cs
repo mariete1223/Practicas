@@ -13,7 +13,8 @@ namespace ServicioMedico.ServiceImpl
             _repository = repository;
             _mapper=mapper;
         }
-        public async Task<DiagnosticoDTO> createExistente(DiagnosticoDTO diagnostico)
+
+        public async Task<DiagnosticoDTO> create(DiagnosticoDTO diagnostico)
         {
             return _mapper.Map<DiagnosticoDTO>(await _repository.createDiag(_mapper.Map<Diagnostico>(diagnostico)));
         }

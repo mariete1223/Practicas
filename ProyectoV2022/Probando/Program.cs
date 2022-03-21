@@ -30,19 +30,6 @@ builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
-builder.Services.AddCors( options =>
-{
-    options.AddPolicy(name: "prueba",
-    builder =>
-    {
-        builder.WithOrigins("http://localhost:4200")
-        .AllowAnyMethod()
-        .AllowAnyHeader();
-    });
-
-
-});
-
 //mapper
 
 var mapperConfig = new MapperConfiguration(m =>

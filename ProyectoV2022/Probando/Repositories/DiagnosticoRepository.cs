@@ -15,11 +15,11 @@ namespace ServicioMedico.Repositories
         public async Task<Diagnostico> createDiag(Diagnostico diagnostico)
         {
 
-            Cita cita = await _dataContext.Cita.FindAsync(diagnostico.cita.Id);
+            var cita = await _dataContext.Cita.FindAsync(diagnostico.cita.Id);
             if (cita == null)
             {
-                Paciente paciente = await _dataContext.PacienteDB.FindAsync(diagnostico.cita.paciente.Id);
-                Medico medico = await _dataContext.MedicoDB.FindAsync(diagnostico.cita.medico.Id);
+                var paciente = await _dataContext.PacienteDB.FindAsync(diagnostico.cita.paciente.Id);
+                var medico = await _dataContext.MedicoDB.FindAsync(diagnostico.cita.medico.Id);
                 if (paciente != null)
                 {
                     diagnostico.cita.paciente = paciente;

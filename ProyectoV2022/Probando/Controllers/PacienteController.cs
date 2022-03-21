@@ -38,7 +38,7 @@ namespace ServicioMedico.Controllers
         [HttpPost]
         public async Task<ActionResult<PacienteDTO>> post(PacienteDTO pacienteDTO)
         {
-            return await _pacienteService.add(pacienteDTO);
+            return await _pacienteService.create(pacienteDTO);
         }
 
         [HttpPut("{id}")]

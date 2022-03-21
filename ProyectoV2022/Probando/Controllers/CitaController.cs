@@ -6,7 +6,7 @@ using ServicioMedico.ServiceImpl;
 namespace ServicioMedico.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[Controller]")]
     public class CitaController
     {
 
@@ -40,7 +40,7 @@ namespace ServicioMedico.Controllers
         [HttpPost]
         public async Task<ActionResult<CitaDTO>> post(CitaDTO cita)
         {
-            return await _citaService.add(cita);
+            return await _citaService.create(cita);
         }
 
         [HttpPut("{id}")]

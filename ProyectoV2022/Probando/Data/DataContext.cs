@@ -21,6 +21,7 @@ namespace ServicioMedico.Repositories
 
             base.OnModelCreating(modelBuilder);
 
+            
             modelBuilder.Entity<Usuario>().ToTable("Usuario");
 
             modelBuilder.Entity<Medico>().ToTable("Medico");
