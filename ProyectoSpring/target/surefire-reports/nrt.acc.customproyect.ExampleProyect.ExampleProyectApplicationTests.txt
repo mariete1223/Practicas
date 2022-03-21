@@ -1,7 +1,0 @@
--------------------------------------------------------------------------------
-Test set: nrt.acc.customproyect.ExampleProyect.ExampleProyectApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.187 s <<< FAILURE! - in nrt.acc.customproyect.ExampleProyect.ExampleProyectApplicationTests
-nrt.acc.customproyect.ExampleProyect.ExampleProyectApplicationTests  Time elapsed: 0.186 s  <<< ERROR!
-java.lang.IllegalStateException: Unable to find a @SpringBootConfiguration, you need to use @ContextConfiguration or @SpringBootTest(classes=...) with your test
-
