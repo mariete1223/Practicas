@@ -19,6 +19,7 @@ net\acc\customproyect\entitiesDTO\DiagnosticoSearchFilter.class
 net\acc\customproyect\service\UsuarioService.class
 net\acc\customproyect\repositories\UsuarioRepository.class
 net\acc\customproyect\mapper\DiagnosticoMapper.class
+net\acc\customproyect\config\SecurityConfiguration.class
 net\acc\customproyect\imp\CitaServiceImp.class
 net\acc\customproyect\controller\UsuarioController.class
 net\acc\customproyect\entities\Usuario.class
@@ -33,6 +34,7 @@ net\acc\customproyect\repositories\MedicoRepository.class
 net\acc\customproyect\entities\Medico.class
 net\acc\customproyect\entitiesDTO\PacienteSearchFilter.class
 net\acc\customproyect\mapper\PacienteMapperImpl.class
+net\acc\customproyect\config\JwtTokenFilter.class
 net\acc\customproyect\service\PacienteService.class
 net\acc\customproyect\imp\PacienteServiceImp.class
 net\acc\customproyect\service\MedicoService.class

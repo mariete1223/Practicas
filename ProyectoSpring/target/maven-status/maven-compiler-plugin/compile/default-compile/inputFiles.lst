@@ -1,5 +1,6 @@
 E:\Descargas\ExampleProyect\src\main\java\net\acc\customproyect\imp\DiagnosticoServiceImp.java
 E:\Descargas\ExampleProyect\src\main\java\net\acc\customproyect\mapper\DiagnosticoMapper.java
+E:\Descargas\ExampleProyect\src\main\java\net\acc\customproyect\config\JwtTokenFilter.java
 E:\Descargas\ExampleProyect\src\main\java\net\acc\customproyect\controller\CitaController.java
 E:\Descargas\ExampleProyect\src\main\java\net\acc\customproyect\imp\CitaServiceImp.java
 E:\Descargas\ExampleProyect\src\main\java\net\acc\customproyect\imp\MedicoServiceImp.java
@@ -22,6 +23,7 @@ E:\Descargas\ExampleProyect\src\main\java\net\acc\customproyect\controller\Pacie
 E:\Descargas\ExampleProyect\src\main\java\net\acc\customproyect\mapper\CitaMapper.java
 E:\Descargas\ExampleProyect\src\main\java\net\acc\customproyect\controller\MedicoController.java
 E:\Descargas\ExampleProyect\src\main\java\net\acc\customproyect\entitiesDTO\MedicoSearchFilter.java
+E:\Descargas\ExampleProyect\src\main\java\net\acc\customproyect\config\SecurityConfiguration.java
 E:\Descargas\ExampleProyect\src\main\java\net\acc\customproyect\repositories\PacienteRepository.java
 E:\Descargas\ExampleProyect\src\main\java\net\acc\customproyect\ExampleProyectApplication.java
 E:\Descargas\ExampleProyect\src\main\java\net\acc\customproyect\service\CitaService.java

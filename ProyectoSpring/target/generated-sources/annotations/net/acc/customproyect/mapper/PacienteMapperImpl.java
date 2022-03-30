@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-03-21T16:53:19+0100",
+    date = "2022-03-30T16:11:25+0200",
     comments = "version: 1.4.2.Final, compiler: javac, environment: Java 15.0.1 (Oracle Corporation)"
 )
 @Component
@@ -33,8 +33,7 @@ public class PacienteMapperImpl implements PacienteMapper {
         pacienteDTO.setUsuarioId( paciente.getUsuarioId() );
         pacienteDTO.setNombre( paciente.getNombre() );
         pacienteDTO.setApellidos( paciente.getApellidos() );
-        pacienteDTO.setUsuario( paciente.getUsuario() );
-        pacienteDTO.setClave( paciente.getClave() );
+        pacienteDTO.setEmail( paciente.getEmail() );
         pacienteDTO.setNSS( paciente.getNSS() );
         pacienteDTO.setNumTarjeta( paciente.getNumTarjeta() );
         pacienteDTO.setTelefono( paciente.getTelefono() );
@@ -54,8 +53,7 @@ public class PacienteMapperImpl implements PacienteMapper {
         paciente.setUsuarioId( pacienteDTO.getUsuarioId() );
         paciente.setNombre( pacienteDTO.getNombre() );
         paciente.setApellidos( pacienteDTO.getApellidos() );
-        paciente.setUsuario( pacienteDTO.getUsuario() );
-        paciente.setClave( pacienteDTO.getClave() );
+        paciente.setEmail( pacienteDTO.getEmail() );
         paciente.setNSS( pacienteDTO.getNSS() );
         paciente.setNumTarjeta( pacienteDTO.getNumTarjeta() );
         paciente.setTelefono( pacienteDTO.getTelefono() );
@@ -75,8 +73,7 @@ public class PacienteMapperImpl implements PacienteMapper {
         pacienteSearchFilter.setUsuarioId( paciente.getUsuarioId() );
         pacienteSearchFilter.setNombre( paciente.getNombre() );
         pacienteSearchFilter.setApellidos( paciente.getApellidos() );
-        pacienteSearchFilter.setUsuario( paciente.getUsuario() );
-        pacienteSearchFilter.setClave( paciente.getClave() );
+        pacienteSearchFilter.setEmail( paciente.getEmail() );
         pacienteSearchFilter.setNSS( paciente.getNSS() );
         pacienteSearchFilter.setNumTarjeta( paciente.getNumTarjeta() );
         pacienteSearchFilter.setTelefono( paciente.getTelefono() );
@@ -98,8 +95,7 @@ public class PacienteMapperImpl implements PacienteMapper {
         paciente.setUsuarioId( pacienteDTO.getUsuarioId() );
         paciente.setNombre( pacienteDTO.getNombre() );
         paciente.setApellidos( pacienteDTO.getApellidos() );
-        paciente.setUsuario( pacienteDTO.getUsuario() );
-        paciente.setClave( pacienteDTO.getClave() );
+        paciente.setEmail( pacienteDTO.getEmail() );
         paciente.setNSS( pacienteDTO.getNSS() );
         paciente.setNumTarjeta( pacienteDTO.getNumTarjeta() );
         paciente.setTelefono( pacienteDTO.getTelefono() );
@@ -148,8 +144,7 @@ public class PacienteMapperImpl implements PacienteMapper {
         medicoDTO.setUsuarioId( medico.getUsuarioId() );
         medicoDTO.setNombre( medico.getNombre() );
         medicoDTO.setApellidos( medico.getApellidos() );
-        medicoDTO.setUsuario( medico.getUsuario() );
-        medicoDTO.setClave( medico.getClave() );
+        medicoDTO.setEmail( medico.getEmail() );
         medicoDTO.setNumColegio( medico.getNumColegio() );
 
         return medicoDTO;
@@ -223,8 +218,7 @@ public class PacienteMapperImpl implements PacienteMapper {
         medico.setUsuarioId( medicoDTO.getUsuarioId() );
         medico.setNombre( medicoDTO.getNombre() );
         medico.setApellidos( medicoDTO.getApellidos() );
-        medico.setUsuario( medicoDTO.getUsuario() );
-        medico.setClave( medicoDTO.getClave() );
+        medico.setEmail( medicoDTO.getEmail() );
         medico.setNumColegio( medicoDTO.getNumColegio() );
 
         return medico;
