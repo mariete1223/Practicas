@@ -1,10 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppDispatch, RootState } from '../../app/store';
+import medico from '../../model/medico';
+import paciente from '../../model/Paciente';
+import usuario from '../../model/UsuarioDTO';
 
 //clase autorizacion con sus atributos, representa el estado
 interface AuthorizationState {
     loggedIn: boolean,
     googleToken: any,
+    usuario?: string,
     
 };
 
@@ -13,7 +17,6 @@ const initialState: AuthorizationState = {
     loggedIn: false,
     googleToken: '',
 };
-
 
 
 // creamos actions asociados a los reducers establecidos
@@ -27,7 +30,9 @@ export const authorizationSlice = createSlice({
         setGoogleToken: (state, action: PayloadAction<any>) => {
             state.googleToken = action.payload;
         },
-
+        setUsuario: (state, action: PayloadAction<string>) => {
+            state.usuario = action.payload;
+        },
     },
 });
 
@@ -40,10 +45,11 @@ export const authorice = (log:boolean, token:any) => async (dispatch: AppDispatc
 
 
 //three actions used to change his respective value of the Redux State
-export const { setLoggedIn, setGoogleToken } = authorizationSlice.actions;
+export const { setLoggedIn, setGoogleToken, setUsuario } = authorizationSlice.actions;
 
 export const selectIsLoggedIn = (state: RootState) => state.authorization.loggedIn;
 export const selectGoogleToken = (state: RootState) => state.authorization.googleToken;
+export const selectUsuario = (state: RootState) => state.authorization.usuario;
 
 
 export default authorizationSlice.reducer;

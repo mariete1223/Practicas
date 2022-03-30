@@ -5,20 +5,27 @@ import MenuInicial from './view/App';
 import { store } from './app/store';
 import { Provider, useSelector, useDispatch } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
-import axios from 'axios';
-import { selectGoogleToken } from './component/Authorization/authorizationSlice';
-import { get_failure } from './component/Paciente/PacienteSlice';
+import axios, { AxiosRequestConfig } from 'axios';
+import { selectGoogleToken } from './component/AuthorizationState/authorizationSlice';
 
 
-axios.defaults.headers.common['Authorization'] = `${store.getState().authorization.googleToken.tokenId}`;
+
 axios.interceptors.request.use(
-    (req) => {
-        console.log(req);
+    (req: AxiosRequestConfig) => {
+        const token = store.getState().authorization.googleToken.tokenId;
+        req.headers = {
+            'Authorization': "Bearer " + token,
+            'Access-Control-Allow-Origin': "http://localhost:3000",
+            'Content-Type': "application/json; charset=utf-8"
+        }
+        /*req.headers['Authorization'] = "Bearer " + token;
+        req.headers['Access-Control-Allow-Origin'] = "http://localhost:3000";
+        req.headers['Content-Type'] = "application/json; charset=utf-8";*/
+        
         return req;
     },
     (err) => {
-        var Dispatch = useDispatch();
-        Dispatch(get_failure(""));
+
         return Promise.reject(err);
     }
 );

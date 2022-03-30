@@ -1,13 +1,11 @@
-import cita from './Cita';
 import usuario from './UsuarioDTO';
 
-interface paciente extends usuario {
+interface pacienteDTO extends usuario {
 
 	NSS: string,
 	numTarjeta: string,
 	telefono: string,
 	direccion: string,
-	citas: cita[],
 }
 
-export default paciente;
+export default pacienteDTO;

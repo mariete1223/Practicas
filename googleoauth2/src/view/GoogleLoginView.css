@@ -1,0 +1,54 @@
+
+html,body, #root {
+    margin:0;
+    width:100%;
+    height:100%;
+    padding:0;
+}
+
+#root{
+    display:flex;
+    flex-direction:column;
+}
+
+.backgroundcover {
+    flex-grow: 1;
+    display: flex;
+    background-image: url('https://www.centromedicomedina.com/wp-content/uploads/2017/05/DENSITOMETR%C3%8DA-OSEA-Y-ECOGRAFO-CENTRO-MEDICO-MEDINA.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+
+.container {
+    background: #2C497F;
+    opacity: .92;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+
+
+.GoogleDiv {
+    margin: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.13);;
+    border-radius: 8px;
+    border: 3px solid #d8d8da;
+    height: 20rem;
+    width: 25rem;
+}
+
+.GoogleDiv h1{
+    padding:2.5rem;
+    color:black;
+}
+

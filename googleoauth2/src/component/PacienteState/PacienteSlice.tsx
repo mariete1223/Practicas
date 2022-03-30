@@ -1,12 +1,8 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import Global from './../../Global';
-import { NavLink } from 'react-router-dom';
 import paciente from '../../model/Paciente'
 import { createSlice, Dispatch, PayloadAction } from '@reduxjs/toolkit';
 import { AppDispatch, RootState } from '../../app/store';
 
-import { fetchAll } from '../../service/pacienteService';
+import { fetchAllPacientes } from '../../service/pacienteService';
 
 interface PacienteState {
     pacientes: paciente[],
@@ -29,7 +25,7 @@ export const pacienteSlice = createSlice({
                 state.loading = "pending";
             }
         },
-        get_failure: (state, action: PayloadAction<any>) => {
+        get_pacientes_failure: (state, action: PayloadAction<any>) => {
             if (state.loading == "pending") {
                 state.loading = "idle";
             }
@@ -43,20 +39,20 @@ export const pacienteSlice = createSlice({
     },
 });
 
-export const { get_pacientes_pending, get_pacientes_received, get_failure } = pacienteSlice.actions;
+export const { get_pacientes_pending, get_pacientes_received, get_pacientes_failure } = pacienteSlice.actions;
 
 export const selectPacientes = (state: RootState) => state.paciente.pacientes;
-export const selectLoading = (state: RootState) => state.paciente.loading;
+export const selectPacientesLoading = (state: RootState) => state.paciente.loading;
 function delay(ms: number) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 export const fetchPacientes = () => async (dispatch: AppDispatch) => {
     dispatch(get_pacientes_pending(""));
     delay(100);
-     await fetchAll().then(res =>
+     await fetchAllPacientes().then(res =>
                         dispatch(get_pacientes_received(res.data)))
          .catch(err => {
-             dispatch(get_failure(""));
+             dispatch(get_pacientes_failure(""));
              return Promise.reject(err);
 
          });
