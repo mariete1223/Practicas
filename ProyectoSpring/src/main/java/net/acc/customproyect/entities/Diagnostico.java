@@ -31,6 +31,7 @@ public class Diagnostico {
 	
 	/*@Column( name = "cita"  )*/
 	@OneToOne(
+		
 			mappedBy = "diagnostico"
 			)
 	@JoinColumn 

@@ -21,23 +21,19 @@ public class Usuario {
 	private String nombre;
 	@Column(name = "apellidos")
 	private String apellidos;
-	@Column(name = "usuario")
-	private String usuario;
-	@Column(name = "clave")
-	private String clave;
-	
+	@Column(name = "email")
+	private String email;
 	
 
 	public Usuario() {
 		super();
 	}
 
-	public Usuario(String nombre, String apellidos, String usuario, String clave) {
+	public Usuario(String nombre, String apellidos, String email, String clave) {
 		super();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
-		this.usuario = usuario;
-		this.clave = clave;
+		this.email = email;
 	}
 	
 	
@@ -66,20 +62,12 @@ public class Usuario {
 		this.apellidos = apellidos;
 	}
 
-	public String getUsuario() {
-		return usuario;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
-
-	public String getClave() {
-		return clave;
-	}
-
-	public void setClave(String clave) {
-		this.clave = clave;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

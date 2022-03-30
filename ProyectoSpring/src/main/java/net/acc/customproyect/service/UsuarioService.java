@@ -11,6 +11,7 @@ public interface UsuarioService {
 	
 	public List<UsuarioDTO> findAllUsuario();
 	public UsuarioDTO getUsuarioById(Long id);
+	public UsuarioDTO getUsuarioByName(String name);
 	public void deleteUsuarioById(Long usuario);
 	public UsuarioDTO saveUsuario(UsuarioDTO usuario);
 	public UsuarioDTO updateUsuario(Long usuarioId, UsuarioDTO usuario);

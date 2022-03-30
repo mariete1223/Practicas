@@ -6,4 +6,5 @@ import net.acc.customproyect.entities.Usuario;
 
 public interface UsuarioRepository  extends JpaRepository<Usuario, Long>{
 
+	public Usuario findByNombre(String nombre);
 }

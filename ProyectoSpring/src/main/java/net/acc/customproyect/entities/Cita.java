@@ -41,7 +41,7 @@ public class Cita {
 	private int attribute11;
 	
 /*	@Column( name="diagnostico" )*/
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	@JoinColumn (
 			name = "diagnostico",
 			referencedColumnName = "diagnostico_id"
