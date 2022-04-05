@@ -7,8 +7,7 @@ public class UsuarioDTO {
 	private Long usuarioId;
 	private String nombre;
 	private String apellidos;
-	private String usuario;
-	private String clave;
+	private String email;
 	
 	public Long getUsuarioId() {
 		return usuarioId;
@@ -28,18 +27,13 @@ public class UsuarioDTO {
 	public void setApellidos(String apellidos) {
 		this.apellidos = apellidos;
 	}
-	public String getUsuario() {
-		return usuario;
+	public String getEmail() {
+		return email;
 	}
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-	public String getClave() {
-		return clave;
-	}
-	public void setClave(String clave) {
-		this.clave = clave;
-	}
+
 	
 	
 

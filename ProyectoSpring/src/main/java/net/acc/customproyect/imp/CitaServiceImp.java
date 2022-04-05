@@ -61,7 +61,11 @@ public class CitaServiceImp implements CitaService {
 
 	@Override
 	public void deleteCitaById(Long cita) {
-		citaRepository.deleteById(cita);
+		Optional<Cita> citaToDelete = citaRepository.findById(cita);
+		if(citaToDelete.isPresent()) {
+			citaRepository.deleteById(cita);
+		}
+		//citaRepository.deleteById(cita);
 
 	}
 
@@ -70,7 +74,7 @@ public class CitaServiceImp implements CitaService {
 		Optional<Cita> cit = citaRepository.findById(citaId);
 		if (cit.isPresent()) {
 
-			Cita newCita = cit.get();
+			CitaDTO newCita = cita;
 
 			if (Objects.nonNull(cita.getMotivoCita()) && !"".equalsIgnoreCase(cita.getMotivoCita())) {
 				newCita.setMotivoCita(cita.getMotivoCita());
@@ -83,8 +87,12 @@ public class CitaServiceImp implements CitaService {
 			if (Objects.nonNull(cita.getAttribute11())) {
 				newCita.setAttribute11(cita.getAttribute11());
 			}
+			
+			if(Objects.nonNull(cita.getMedico())) {
+				newCita.setMedico(cita.getMedico());
+			}
 
-			return citaMapper.CitaToCitaDTO(citaRepository.save(newCita));
+			return citaMapper.CitaToCitaDTO(citaRepository.save(citaMapper.CitaDTOToCita(newCita)));
 		}
 
 		return null;
@@ -129,7 +137,9 @@ public class CitaServiceImp implements CitaService {
 		
 		Medico med = medico.get();
 		LinkedList<Paciente> pac = new LinkedList<>( med.getPacientes());
-		pac.add(paciente.get());
+		if(!pac.contains(paciente.get())) {
+			pac.add(paciente.get());
+		}
 		med.setPacientes(pac);
 		medicoRepository.save(med);
 		

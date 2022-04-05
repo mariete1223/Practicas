@@ -1,15 +1,20 @@
 package net.acc.customproyect.imp;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.acc.customproyect.entities.Medico;
+import net.acc.customproyect.entities.Paciente;
 import net.acc.customproyect.entities.Usuario;
 import net.acc.customproyect.entitiesDTO.UsuarioDTO;
+import net.acc.customproyect.mapper.MedicoMapper;
+import net.acc.customproyect.mapper.PacienteMapper;
 import net.acc.customproyect.mapper.UsuarioMapper;
 import net.acc.customproyect.repositories.UsuarioRepository;
 import net.acc.customproyect.service.UsuarioService;
@@ -22,16 +27,41 @@ public class UsuarioServiceImp implements UsuarioService {
 	
 	@Autowired
 	private UsuarioMapper usuarioMapper;
+	
+	@Autowired
+	private PacienteMapper pacienteMapper;
+	
+	@Autowired
+	private MedicoMapper medicoMapper;
 
 	@Override
 	public List<UsuarioDTO> findAllUsuario() {
-		return usuarioMapper.UsuarioListToUsuarioDTOList(usuarioRepository.findAll());
+		List<Usuario> usuarios=usuarioRepository.findAll();
+		usuarios.forEach((e) -> System.out.println((e instanceof Paciente)+"\n\n"));
+		
+		List<UsuarioDTO> fin= new LinkedList<UsuarioDTO>(); 
+		
+		usuarios.stream().forEach((e) ->{
+							if(e instanceof Paciente) {
+								fin.add(pacienteMapper.PacienteToPacienteDto((Paciente)e));
+							}
+							else if(e instanceof Medico) {
+								fin.add(medicoMapper.MedicoToMedicoDTO((Medico)e));
+							}
+							else {
+								fin.add(usuarioMapper.UsuarioToUsuarioDTO(e));
+							}
+								
+							
+		});
+		return fin;
 	}
 
 	@Override
 	public UsuarioDTO getUsuarioById(Long id) {
 		Optional<Usuario> usuario = usuarioRepository.findById(id);
 		if(usuario.isPresent()) {
+			
 			return usuarioMapper.UsuarioToUsuarioDTO(usuario.get());
 		}
 		return null;
@@ -59,12 +89,8 @@ public class UsuarioServiceImp implements UsuarioService {
 				newUser.setApellidos(usuario.getApellidos());
 			}
 
-			if (Objects.nonNull(usuario.getClave()) && !"".equalsIgnoreCase(usuario.getClave())) {
-				newUser.setClave(usuario.getClave());
-			}
-
-			if (Objects.nonNull(usuario.getUsuario()) && !"".equalsIgnoreCase(usuario.getUsuario())) {
-				newUser.setUsuario(usuario.getUsuario());
+			if (Objects.nonNull(usuario.getEmail()) && !"".equalsIgnoreCase(usuario.getEmail())) {
+				newUser.setEmail(usuario.getEmail());
 			}
 
 			return usuarioMapper.UsuarioToUsuarioDTO(usuarioRepository.save(newUser));
@@ -76,5 +102,10 @@ public class UsuarioServiceImp implements UsuarioService {
 	public UsuarioDTO saveUsuario(UsuarioDTO usuario) {
 		// TODO Auto-generated method stub
 		return usuarioMapper.UsuarioToUsuarioDTO(usuarioRepository.save( usuarioMapper.UsuarioDTOToUsuario(usuario)));
+	}
+
+	@Override
+	public UsuarioDTO getUsuarioByName(String name) {
+		return usuarioMapper.UsuarioToUsuarioDTO(usuarioRepository.findByNombre(name));
 	}
 }
