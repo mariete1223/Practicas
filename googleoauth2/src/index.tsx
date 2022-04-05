@@ -7,6 +7,7 @@ import { Provider, useSelector, useDispatch } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
 import axios, { AxiosRequestConfig } from 'axios';
 import { selectGoogleToken } from './component/AuthorizationState/authorizationSlice';
+import { useNavigate } from 'react-router';
 
 
 
@@ -32,10 +33,13 @@ axios.interceptors.request.use(
 
 axios.interceptors.response.use(
     (req) => {
+        
         return req;
     },
     (err) => {
-       
+        if (err.status === 401) {
+            window.location.href = '/';
+        }
         return Promise.reject(err);
     }
 );
@@ -45,6 +49,10 @@ ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
             <MenuInicial />
+            <script
+                src="https://kit.fontawesome.com/0f83e5d3b7.js"
+                crossOrigin="anonymous"
+            ></script>
         </Provider>
   </React.StrictMode>,
   document.getElementById('root')

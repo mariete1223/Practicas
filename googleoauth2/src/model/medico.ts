@@ -1,10 +1,10 @@
 import cita from './Cita';
+import medicoDTO from './MedicoDTO';
 import pacienteDTO from './PacienteDTO';
 import usuario from './UsuarioDTO';
 
-interface medico extends usuario {
+interface medico extends medicoDTO {
 
-	numColegio: string,
 	pacientes: pacienteDTO[],
 	citas: cita[],
 

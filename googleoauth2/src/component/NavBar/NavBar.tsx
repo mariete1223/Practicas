@@ -3,46 +3,49 @@ import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { selectUsuario } from '../AuthorizationState/authorizationSlice';
 import './navBar.css';
-import { FaFacebookSquare, FaTwitterSquare, FaInstagramSquare } from 'react-icons/fa';
+import { FaFacebookSquare, FaTwitterSquare, FaInstagramSquare, FaBars, FaWindowClose } from 'react-icons/fa';
+import { useState } from 'react';
 
 
 const  NavBar = () => {
 
     var usuario = useSelector(selectUsuario);
 
+    const [click, setClick] = useState(false);
 
+    const handleClick = () => setClick(!click);
 
     return (
         <header className="navBar">
-        <h1 className="padding"></h1>
         <nav className="main-nav">
-            <div className="logo">
+            <div className="nav-container">
+            <NavLink className="nav-logo" to="/">
                 <h2><span>C</span>entro <span>M</span>edico</h2>
-            </div>
-                    <div className="menu-link" id="ida">
-                        <ul>
-                        <li>
+            </NavLink>
+                    
+                        <ul className={ click ? "nav-menu active" : "nav-menu" }>
+                            <li className="nav-item">
                            
-                                <NavLink className="NavLink" to="/" > Login</NavLink>
+                            <NavLink onClick={handleClick} className="nav-link"  to="/" > Login</NavLink>
                             </li>
 
-                            <li>
-                            <NavLink className="NavLink" to="/myInfo/misCitas" >Mis Citas</NavLink>
+                            <li className="nav-item">
+                            <NavLink onClick={handleClick} className="nav-link" to="/myInfo/misCitas" >Mis Citas</NavLink>
                             </li>
 
                             {usuario == "Medico" &&
-                                <li>
-                            && <NavLink className="NavLink" to="/myInfo" >Ver Citas</NavLink>
-                                </li>
+                            <li className="nav-item">
+                            <NavLink onClick={handleClick} className="nav-link"  to="/myInfo" >Ver Citas</NavLink>
+                            </li>
                             }
 
-                        <li>
-                            <NavLink className="NavLink" to="/NotFound" >NotFound</NavLink>
+                            <li className="nav-item">
+                            <NavLink onClick={handleClick} className="nav-link"  to="/nuevaCitaForm" >Nueva Cita</NavLink>
                            
                             </li>    
 
                         </ul>
-                </div>
+                    
 
                 <div className="social-media">
                     <ul className="social-media-desktop">
@@ -57,8 +60,10 @@ const  NavBar = () => {
                         </li>
                     </ul>
                 </div>
-                
-
+                    <div className="nav-icon" onClick={handleClick}>
+                        <i className="bars-icon">{click ? <FaWindowClose/> : <FaBars/> }</i>
+                    </div>
+            </div>
         </nav>
             
         </header>

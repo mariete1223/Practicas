@@ -1,10 +1,10 @@
 import cita from "./Cita";
 
 interface diagnosticoDTO {
-	diagnosticoId: ConstrainULong,
+	diagnosticoId?: ConstrainULong,
 	valoracionEspecialista,
 	enfermedad: string,
-	cita: cita,
+	cita?: cita,
 }
 
 export default diagnosticoDTO;

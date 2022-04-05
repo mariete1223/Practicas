@@ -1,6 +1,6 @@
 
 interface usuario {
-	usuarioId: ConstrainULong,
+	usuarioId?: ConstrainULong,
 	nombre: string,
 	apellidos: string,
 	email: string,

@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import { useSelector, useDispatch } from 'react-redux';
 import "./GoogleLoginView.css";
-import { selectGoogleToken, setGoogleToken, setLoggedIn, selectIsLoggedIn, authorice } from '../component/AuthorizationState/authorizationSlice';
+import { selectGoogleToken, setGoogleToken, setLoggedIn, selectIsLoggedIn, authorice, setEmail } from '../component/AuthorizationState/authorizationSlice';
 import { profile } from 'console';
 import loginImg from  '../assets/login.png';
 
@@ -16,6 +16,8 @@ function GoogleLoginView() {
     const googleLogin = (response: any) => {
         console.log(response);
         dispatch(authorice(true, response));
+        console.log(response.profileObj.email);
+        dispatch(setEmail(response.profileObj.email));
     };
 
     const googleLogout = () => {
@@ -43,7 +45,7 @@ function GoogleLoginView() {
                 clientId="80071081849-ot7tl281gg8ksgukh4m1ce6fbsghg11j.apps.googleusercontent.com"
                 buttonText="Login with Google"
                 onSuccess={googleLogin}
-                onFailure={googleLogin}
+                //onFailure={googleLogin}
                 cookiePolicy="single_host_origin"
                 uxMode="redirect"
                 redirectUri="http://localhost:3000"

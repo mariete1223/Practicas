@@ -55,10 +55,16 @@ export const selectCitas = (state: RootState) => state.cita.citas;
 export const selectCitaLoading = (state: RootState) => state.cita.loading;
 export const selectCitaSelected = (state: RootState) => state.cita.selected;
 
+function delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 export const fetchCitas = () => async (dispatch: AppDispatch) => {
+    
     dispatch(get_citas_pending(""));
-    await fetchAllCitas().then(res => { 
+    await delay(1000);
+    await fetchAllCitas().then(res => {
+        
         dispatch(get_citas_received(res.data))
         dispatch(setUsuario(res.headers.Role))
         })

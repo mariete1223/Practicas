@@ -7,13 +7,14 @@ import { updateCita } from "../service/citaService";
 import { fetchMedicos, selectMedicos } from "../component/MedicoState/MedicoSlice";
 import './CambioCitaForm.css';
 import { useNavigate } from "react-router";
+import { findBy } from "../service/medicoService";
 
 
 function CambioCitaRender() {
 
 
     var cita = useSelector(selectCitaSelected);
-    var medicos = useSelector(selectMedicos);
+    
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [datos, setDatos] = useState({
@@ -23,7 +24,7 @@ function CambioCitaRender() {
 
     })
    
-
+    var medicos = useSelector(selectMedicos);
     useEffect(() => {
 
         dispatch(fetchMedicos());
@@ -40,7 +41,7 @@ function CambioCitaRender() {
             newcita.fechaHora = new Date(datos.fechaHora);
         }
         if (datos.medico != "") {
-            const medico = findBy(datos.medico)
+            const medico = findBy(medicos, datos.medico)
             if (medico == undefined) {
                 navigate("/myInfo")
             }
@@ -53,13 +54,6 @@ function CambioCitaRender() {
         updateCita(newcita);
         navigate("/myInfo/MisCitas");
     }
-
-
-    function findBy(medicoId: string) {
-        return medicos.filter((medico) => {
-            return String(medico.usuarioId) == medicoId;
-        }).pop();
-}
 
 
 
@@ -87,7 +81,7 @@ function CambioCitaRender() {
                 
                 
                     <label>Seleccione Medico:</label><br/>
-                    <select onChange={handleChange} name="nombreApellidos" className="ComboBox">
+                    <select onChange={handleChange} name="medico" className="ComboBox">
                         {medicos.map((medico) => <option key={String(medico.usuarioId)} value={String(medico.usuarioId)}>{medico.nombre + " " + medico.apellidos}</option>)}
                     </select>
                     <i></i>

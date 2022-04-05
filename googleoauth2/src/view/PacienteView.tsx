@@ -26,9 +26,9 @@ function Paciente() {
 
     return (
         <div className="PacienteView-Container">
-           
-            <Outlet/>
             {loading && <Loading />}
+            <Outlet/>
+            
             
 
         </div>        

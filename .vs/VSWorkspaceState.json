@@ -4,11 +4,13 @@
     "\\googleoauth2",
     "\\googleoauth2\\src",
     "\\googleoauth2\\src\\component",
-    "\\googleoauth2\\src\\component\\CitasView",
+    "\\googleoauth2\\src\\component\\AuthorizationState",
+    "\\googleoauth2\\src\\component\\CitaPanel",
+    "\\googleoauth2\\src\\component\\CitaState",
+    "\\googleoauth2\\src\\component\\Loading",
     "\\googleoauth2\\src\\component\\NavBar",
-    "\\googleoauth2\\src\\service",
-    "\\googleoauth2\\src\\view"
+    "\\googleoauth2\\src\\model"
   ],
-  "SelectedNode": "\\googleoauth2\\src\\view\\App.tsx",
+  "SelectedNode": "\\googleoauth2\\src\\component\\NavBar\\NavBar.tsx",
   "PreviewInSolutionExplorer": false
 }

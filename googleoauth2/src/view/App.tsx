@@ -8,6 +8,7 @@ import { selectIsLoggedIn, selectUsuario } from '../component/AuthorizationState
 import CambioCitaForm from './CambioCitaForm';
 import { selectCitaSelected } from '../component/CitaState/CitaSlice';
 import Cita from '../component/CitasView/Citas';
+import NuevaCitaForm from './NuevaCitaForm';
 
 function MenuInicial() {
     
@@ -25,10 +26,10 @@ function MenuInicial() {
 
                 <Route path="/myInfo" element={
                     logged ? <Paciente /> : <Navigate to="/" /> } >
-                <Route path="misCitas" element={<Cita />} />
+                    <Route path="misCitas" element={<Cita />} />
                  </Route>
                 <Route path="/updateCita/*" element={isCitaSelected ? <CambioCitaForm /> : <Navigate to="/myInfo" />} />
-                    
+                <Route path="/nuevaCitaForm" element={logged ? <NuevaCitaForm /> : <Navigate to="/" /> } />
                
                 <Route path="*" element={<NotFound/> } />
             </Routes>

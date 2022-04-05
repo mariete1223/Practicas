@@ -28,3 +28,12 @@ export function deleteCita(citaId: ConstrainULong) {
      
     ).then((response) => { return response; });
 }
+
+export function postCita(cita: cita) {
+    var url = Global.urlCentroMedico;
+    var request = "/citas";
+
+    return axios.post(url + request,
+        JSON.stringify(cita)
+    ).then((response) => { return response; });
+}

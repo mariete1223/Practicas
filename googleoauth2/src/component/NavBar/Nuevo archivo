@@ -1,0 +1,250 @@
+
+import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { selectUsuario } from '../AuthorizationState/authorizationSlice';
+import './navBar.css';
+import { FaFacebookSquare, FaTwitterSquare, FaInstagramSquare } from 'react-icons/fa';
+
+
+const  NavBar = () => {
+
+    var usuario = useSelector(selectUsuario);
+
+
+
+    return (
+        <header className="navBar">
+        <h1 className="padding"></h1>
+        <nav className="main-nav">
+            <div className="logo">
+                <h2><span>C</span>entro <span>M</span>edico</h2>
+            </div>
+                    <div className="menu-link" id="ida">
+                        <ul>
+                        <li>
+                           
+                                <NavLink className="NavLink" to="/" > Login</NavLink>
+                            </li>
+
+                            <li>
+                            <NavLink className="NavLink" to="/myInfo/misCitas" >Mis Citas</NavLink>
+                            </li>
+
+                            {usuario == "Medico" &&
+                                <li>
+                            && <NavLink className="NavLink" to="/myInfo" >Ver Citas</NavLink>
+                                </li>
+                            }
+
+                        <li>
+                            <NavLink className="NavLink" to="/nuevaCitaForm" >Nueva Cita</NavLink>
+                           
+                            </li>    
+
+                        </ul>
+                </div>
+
+                <div className="social-media">
+                    <ul className="social-media-desktop">
+                        <li>
+                            <a href="#"><FaFacebookSquare /></a>
+                        </li>
+                        <li>
+                            <a href="#"><FaTwitterSquare /></a>
+                        </li>
+                        <li>
+                            <a href="#"><FaInstagramSquare /></a>
+                        </li>
+                    </ul>
+                </div>
+                
+
+        </nav>
+            
+        </header>
+   );
+}
+
+
+
+export default NavBar;
+
+
+html{
+    font-size:62.5%;
+}
+
+a {
+    text-decoration:none;
+}
+li {
+    list-style:none;
+}
+
+.padding{
+    height:8rem;
+    padding:0;
+    margin:0;
+}
+
+.main-nav {
+    width: 100%;
+    height: 8rem;
+    background-color: dodgerblue;
+    top:0;
+    position:fixed;
+    z-index:9999;
+    display: grid;
+    grid-template-columns: 10rem 1fr 2fr 1fr 10rem;
+    grid-template-rows: 8rem;
+    box-shadow: rgba(50,50,93,9.25) 0px 30px 80px -40px;
+    border-bottom: 1px solid black;
+    padding: 0;
+}
+
+.logo{
+    display:grid;
+  
+    grid-column:2/3;
+    justify-content:start;
+    align-items:center;
+}
+
+    .logo h2 {
+        letter-spacing: 1px;
+        margin: 0;
+        grid-template-rows: 8rem;
+        font-size: 3.2rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: white;
+    }
+
+.logo h2 span {
+    font-size:4.2rem;
+    font-weight:700;
+}
+
+.menu-link{
+    grid-column: 3/4;
+
+}
+
+    .menu-link ul {
+        margin: 0;
+
+        height: 8rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        box-sizing:border-box;
+    }
+
+.menu-link ul li {
+    font-size:2.5em;
+    height: 3rem;
+    width:20rem;
+}
+
+    .menu-link ul li .NavLink {
+        text-transform: capitalize;
+        color: white;
+        padding: 6px;
+        border-radius: 10%;
+       
+    }
+
+.menu-link ul li .NavLink:hover {
+    border: 2px solid #555555; /* Green */
+    padding:4px;
+    transform-origin: left;
+    color: rgba(0,0,3,1);
+    background-color: #e7e7e7;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    transition: 0.5s;
+}
+
+.social-media{
+    grid-column: 4/5;
+}
+
+    .social-media ul {
+        margin:0;
+        height: 8rem;
+        grid-template-columns: 3fr repeat(3,1fr);
+        display: grid;
+        align-items: center;
+    }
+
+.social-media ul li{
+    font-size:4rem;
+}
+
+.social-media ul li:first-child{
+    grid-column:2/3;
+}
+
+
+
+
+/*
+
+body {
+    padding:0;
+    margin:0;
+    height:100%;
+}
+
+.navBar {
+    height: 6rem;
+}*/
+/*
+nav h1{
+    font-size: 3rem;
+    color:whitesmoke;
+    padding:1rem;
+}*/
+/*
+nav {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height:inherit;
+    box-sizing: border-box;
+}*/
+/*
+nav ul {
+       
+       margin:0;
+       height: 100%;
+       align-items: center;
+       display: flex;
+}
+
+nav ul li {
+    margin: 20px;
+    list-style: none;
+    position:relative;
+}
+
+nav ul li a {
+    font-size: 2rem;
+    text-decoration: none;
+    border-radius: 15%;
+    padding: 4px;
+    background-color: white;
+}
+
+    nav ul li:hover {
+        transform: scale(1.1,1.1);
+        text-decoration: none;
+        border-radius: 15%;
+        padding: 4px;
+        
+    }
+
+   

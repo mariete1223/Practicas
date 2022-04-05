@@ -9,6 +9,7 @@ interface AuthorizationState {
     loggedIn: boolean,
     googleToken: any,
     usuario?: string,
+    email: string,
     
 };
 
@@ -16,6 +17,7 @@ interface AuthorizationState {
 const initialState: AuthorizationState = {
     loggedIn: false,
     googleToken: '',
+    email: '',
 };
 
 
@@ -33,6 +35,9 @@ export const authorizationSlice = createSlice({
         setUsuario: (state, action: PayloadAction<string>) => {
             state.usuario = action.payload;
         },
+        setEmail: (state, action: PayloadAction<string>) => {
+            state.email = action.payload;
+        }
     },
 });
 
@@ -45,11 +50,12 @@ export const authorice = (log:boolean, token:any) => async (dispatch: AppDispatc
 
 
 //three actions used to change his respective value of the Redux State
-export const { setLoggedIn, setGoogleToken, setUsuario } = authorizationSlice.actions;
+export const { setLoggedIn, setGoogleToken, setUsuario, setEmail } = authorizationSlice.actions;
 
 export const selectIsLoggedIn = (state: RootState) => state.authorization.loggedIn;
 export const selectGoogleToken = (state: RootState) => state.authorization.googleToken;
 export const selectUsuario = (state: RootState) => state.authorization.usuario;
+export const selectEmail = (state: RootState) => state.authorization.email;
 
 
 export default authorizationSlice.reducer;

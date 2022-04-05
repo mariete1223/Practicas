@@ -3,7 +3,7 @@ import './Loading.css';
 function Loading() {
 
     return (
-        <div>
+        <div className="Loading">
 
             <h1>Loading... </h1>
             <div className="preloader"></div>
